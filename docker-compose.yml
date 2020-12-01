@@ -30,15 +30,3 @@ services:
     volumes:
     - ./source:/var/www/html/magento
     - ./etc/infrastructure/apache/default.conf:/etc/apache2/sites-available/000-default.conf
-
-  nginx-magento:
-    image: nginx:1.18.0-alpine
-    container_name: "nginx-magento"
-    hostname: nginx
-    restart: always
-    depends_on:
-      - magento
-    ports:
-      - "80:80"
-    volumes:
-      - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
